@@ -1,0 +1,35 @@
+<button class="btn btn-secondary btn-outline-danger text-light btn-lg my-2" routerLink="/categorias">Regresar</button>
+<br>
+<div class="card mb-3">
+    <div class="card-header"><h1 class="text text-center">Formulario de Categorias</h1></div>
+    <div class="card-body">
+        <form >
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="categoria.nombre">
+                <div class="alert alert-danger" *ngIf="error && error.nombre">
+                    {{ error.nombre }}
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="genero">Genero (Seleccione una opcion)</label>
+                <select class="form-select form-control" aria-label="Default select example" name="genero" [(ngModel)]="categoria.genero">
+                    <option selected value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                </select>
+
+                <!-- <input type="text" name="genero" id="genero" class="form-control" [(ngModel)]="categoria.genero">
+                <div class="alert alert-danger" *ngIf="error && error.genero">
+                    {{ error.genero }}
+                </div> -->
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-outline-success text-light" (click)="crear()">
+                    Crear Categoria
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

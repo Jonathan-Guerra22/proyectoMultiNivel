@@ -1,0 +1,39 @@
+<br>
+<div class="card">
+    <div class="card-header"><h1 class="text text-center">Categorias</h1></div>
+    <div class="card-body text-primary">
+        <button class="btn btn-primary my-2" routerLink="/categorias/add">Crear Categoria</button>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Genero</th>
+                    <!-- <th>Eliminar</th> -->
+                    <!-- <th>Editar</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let categoria of listaCategorias" [routerLink]="['/home']">
+                    <td>{{ categoria.id }}</td>
+                    <td>{{ categoria.nombre }}</td>
+                    <td *ngIf="categoria.estado == 'Activo' ">🟢 {{ categoria.estado }}</td>
+                    <td *ngIf="categoria.estado == 'Deshabilitado'">🔴 {{ categoria.estado }}</td>
+                    <td>{{ categoria.genero }}</td>
+                    <!-- <td>
+                        <button class="btn btn-warning btn-sm" [routerLink]="['/clientes/form',cliente.id]">
+                            Editar
+                        </button>
+                    </td>-->
+
+                    <!-- <td>
+                        <button class="btn btn-danger btn-sm" (click)="eliminar(categoria)">
+                            🗑
+                        </button>
+                    </td>  -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
