@@ -1,1 +1,75 @@
-<p>producto-form works!</p>
+<button class="btn btn-secondary btn-outline-danger text-light btn-lg my-2" routerLink="/productos">Regresar</button>
+<br>
+<div class="card mb-3">
+    <div class="card-header"><h2 class="text text-center"> Formulario Producto </h2></div>
+    <div class="card-body">
+        <form >
+            <div class="form-group">
+                <label for="genero">Genero (Seleccione una opcion)</label>
+                <select class="form-select form-control" aria-label="Default select example" name="genero" [(ngModel)]="producto.categoria">
+                <option *ngFor="let categoria of listaCategorias" selected [ngValue]="categoria">{{categoria.id}}. {{categoria.nombre}} | {{categoria.genero}}</option>
+                </select>
+            </div><br>
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+
+            <div class="form-group" >
+                <label for="nombreproducto">Nombre</label>
+                <input style="max-width: 400px;"  type="text" name="nombreproducto" id="nombreproducto" class="form-control" [(ngModel)]="producto.nombreproducto">
+                <div class="alert alert-danger" *ngIf="error && error.nombreproducto">
+                    {{ error.nombreproducto }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="precioproducto">Precio</label>
+                <input style="max-width: 200px;" type="number" name="precioproducto" id="precio" class="form-control" [(ngModel)]="producto.precioproducto">
+                <div class="alert alert-danger" *ngIf="error && error.precioproducto">
+                    {{ error.precioproducto }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tallaproducto">Talla</label>
+                <input style="max-width: 100px;" type="text" name="tallaproducto" id="tallaproducto" class="form-control" [(ngModel)]="producto.tallaproducto">
+                <div class="alert alert-danger" *ngIf="error && error.tallaproducto">
+                    {{ error.tallaproducto }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="colorproducto">Color</label>
+                <input style="max-width: 200px;" type="text" name="colorproducto" id="colorproducto" class="form-control" [(ngModel)]="producto.colorproducto">
+                <div class="alert alert-danger" *ngIf="error && error.colorproducto">
+                    {{ error.colorproducto }}
+                </div>
+            </div>
+</div><br>
+            <div class="form-group">
+                <label for="descripcionproducto">Descripcion</label>
+                <textarea rows="3" type="text" name="descripcionproducto" id="descripcionproducto" class="form-control" [(ngModel)]="producto.descripcionproducto"></textarea>
+                <div class="alert alert-danger" *ngIf="error && error.descripcionproducto">
+                    {{ error.descripcionproducto }}
+                </div>
+            </div>
+
+
+            <br>
+            <div class="input-group mb-3">
+                <div class="input-group-predend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input (change)="seleccionarImagen($event)" type="file" class="custom-file-input" id="inputGroupFileAdd01" aria-describedby="inputGroupFileAddon01">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="producto.idproducto ? modificar() : crear()">
+                    {{ producto.idproducto ? 'Modificar Producto':'Crear Producto' }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

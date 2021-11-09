@@ -14,7 +14,8 @@ const routes: Routes = [
   {path:'categorias/add',component:CategoriaFormComponent},
 
   {path:'productos',component:ProductosComponent},
-  {path:'productos/form',component:ProductoFormComponent}
+  {path:'productos/form',component:ProductoFormComponent},
+  {path:'productos/form/:idproducto',component:ProductoFormComponent}
 ];
 
 @NgModule({

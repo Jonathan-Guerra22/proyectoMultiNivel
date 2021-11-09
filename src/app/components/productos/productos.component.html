@@ -1,1 +1,51 @@
-<p>productos works!</p>
+<div class="card mb-3">
+    <div class="card-header"><h1 class="text text-center">Productos</h1></div>
+    <div class="card-body">
+        <button class="btn btn-primary my-2" routerLink="/productos/form">Crear Producto</button>
+
+        <div class="row">
+            <div class="card mb-3" style="max-width: 1240px;" *ngFor="let producto of listaProductos" class="col-md-6">
+                <br>
+                <div class="row g-0">
+                    <div class="col-md-4" >
+                        <img  *ngIf="!producto.fotoproductoHashCode" src="../../../assets/1200px-Antu_insert-image.svg.png" style="min-width: 100px;" class="img-fluid rounded-start">
+                        <img (click)="ver(producto)"
+                        *ngIf="producto.fotoproductoHashCode" 
+                        [src]="'http://localhost:8090/api/categorias/verImagen/img/'+producto.idproducto+'?imagenHashCode='+producto.fotoproductoHashCode"
+                        class="img-thumbnail rounded" style="cursor: pointer;"
+                        >
+                        
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold">{{ producto.nombreproducto}}</h4>
+                            <p class="card-text">
+                                <span class="fw-bold">Color:</span> {{producto.colorproducto}} - 
+                                <span class="fw-bold">Talla:</span> {{producto.tallaproducto}}
+                            </p>
+                            <h6 class="card-title fw-bold text-success" > {{ producto.precioproducto | currency:'COP '}} </h6>
+                            <p class="card-text"> {{producto.descripcionproducto}}</p>
+                            
+
+                            <p *ngIf="producto.estadoproducto=='Habilitado'" class="card-text"><small class="text-muted">
+                                🟢 {{producto.estadoproducto}} - ID: {{producto.idproducto}} - Categoria: {{producto.categoria.nombre}}
+                            </small></p>
+                            
+                            <p *ngIf="producto.estadoproducto=='Deshabilitado'" class="card-text"><small class="text-muted">
+                                🔴 {{producto.estadoproducto}} - ID: {{producto.idproducto}} 
+                            </small></p>
+
+                        </div>
+                        
+                        <button class="btn btn-warning btn-sm" [routerLink]="['/productos/form',producto.idproducto]">
+                            Editar
+                        </button>
+                        
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
