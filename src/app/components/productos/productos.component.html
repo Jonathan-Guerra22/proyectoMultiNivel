@@ -9,12 +9,13 @@
                 <div class="row g-0">
                     <div class="col-md-4" >
                         <img  *ngIf="!producto.fotoproductoHashCode" src="../../../assets/1200px-Antu_insert-image.svg.png" style="min-width: 100px;" class="img-fluid rounded-start">
+                        <h6 class="text text-center" *ngIf="!producto.fotoproductoHashCode"><small class="text-muted">El producto no tiene imagen</small></h6>
                         <img (click)="ver(producto)"
                         *ngIf="producto.fotoproductoHashCode" 
                         [src]="'http://localhost:8090/api/categorias/verImagen/img/'+producto.idproducto+'?imagenHashCode='+producto.fotoproductoHashCode"
                         class="img-thumbnail rounded" style="cursor: pointer;"
                         >
-                        
+                        <h6 class="text text-center" *ngIf="producto.fotoproductoHashCode"><small class="text-muted">De clic en la imagen para verla</small></h6>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

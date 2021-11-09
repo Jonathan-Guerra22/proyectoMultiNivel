@@ -11,6 +11,14 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { ProductosComponent } from './components/productos/productos.component';
 import { CategoriaFormComponent } from './components/categorias/categoria-form.component';
 import { ProductoFormComponent } from './components/productos/producto-form.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { VendedoresComponent } from './components/vendedores/vendedores.component';
+import { AdministradoresComponent } from './components/administradores/administradores.component';
+import { CompradoresComponent } from './components/compradores/compradores.component';
+import { UsuarioFormComponent } from './components/usuario/usuario-form.component';
+import { VendedorFormComponent } from './components/vendedores/vendedor-form.component';
+import { AdministradorFormComponent } from './components/administradores/administrador-form.component';
+import { CompradorFormComponent } from './components/compradores/comprador-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +27,15 @@ import { ProductoFormComponent } from './components/productos/producto-form.comp
     CategoriasComponent,
     ProductosComponent,
     CategoriaFormComponent,
-    ProductoFormComponent
+    ProductoFormComponent,
+    UsuarioComponent,
+    VendedoresComponent,
+    AdministradoresComponent,
+    CompradoresComponent,
+    UsuarioFormComponent,
+    VendedorFormComponent,
+    AdministradorFormComponent,
+    CompradorFormComponent
   ],
   imports: [
     BrowserModule,

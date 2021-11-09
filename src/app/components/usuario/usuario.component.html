@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header"><h1 class="text text-center">Usuarios</h1></div>
+    <div class="card-body text-primary">
+        <button class="btn btn-primary my-2" routerLink="/usuarios/form">Crear Usuario</button>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Cedula</th>
+                    <th>Nombre Usuario</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <!-- <th>Editar</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of listadeUsuarios">
+                    <td>{{ usuario.cedula }}</td>
+                    <td>{{ usuario.nomusuario }}</td>
+                    <td>{{ usuario.correo }}</td>
+                    <td *ngIf="usuario.estado == 'Activo' ">🟢 {{ usuario.estado }}</td>
+                    <td *ngIf="usuario.estado == 'Deshabilitado'">🔴 {{ usuario.estado }}</td>
+                <!--
+                    <td>
+                        <button class="btn btn-warning btn-sm" [routerLink]="['/clientes/form',cliente.id]">
+                            Editar
+                        </button>
+                    </td>
+                -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
