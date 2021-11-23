@@ -11,6 +11,9 @@ import { AdministradoresComponent } from './components/administradores/administr
 import { UsuarioFormComponent } from './components/usuario/usuario-form.component';
 import { VendedorFormComponent } from './components/vendedores/vendedor-form.component';
 import { AdministradorFormComponent } from './components/administradores/administrador-form.component';
+import { VerVendedorComponent } from './components/vendedores/ver-vendedor.component';
+import { VentasComponent } from './components/ventas/ventas.component';
+import { VentasFormComponent } from './components/ventas/ventas-form.component';
 
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'home'},
@@ -28,9 +31,14 @@ const routes: Routes = [
 
   {path:'vendedores',component:VendedoresComponent},
   {path:'vendedores/form',component:VendedorFormComponent},
+  {path:'vendedor/:cedulavendedor',component:VerVendedorComponent},
 
   {path:'administrador',component:AdministradoresComponent},
   {path:'administrador/form',component:AdministradorFormComponent},
+
+  {path:'ventas',component:VentasComponent},
+  {path:'ventas/form',component:VentasFormComponent},
+//  {path:'vendedor/:cedulavendedor',component:VerVendedorComponent},
 ];
 
 @NgModule({

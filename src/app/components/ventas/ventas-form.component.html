@@ -1,0 +1,135 @@
+<br>
+<div class="card mb-3">
+    <div class="card-header"><h1 class="text text-center">Crear Venta</h1></div>
+    <div class="card-body">
+        <form><br>
+        <h3><li> Datos Comprador </li></h3><br>
+        <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+            <br>
+            <div class="form-group">
+                <label for="nombreComprador">Nombre Comprador</label>
+                <input type="text" name="nombreComprador" id="nombreComprador" class="form-control" [(ngModel)]="venta.nombreComprador">
+                <div class="alert alert-danger" *ngIf="error && error.nombreComprador">
+                    {{ error.nombreComprador }}
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="apellidoComprador">Apellido Comparador</label>
+                <input type="text" name="apellidoComprador" id="apellidoComprador" class="form-control" [(ngModel)]="venta.apellidoComprador">
+                <div class="alert alert-danger" *ngIf="error && error.apellidoComprador">
+                    {{ error.apellidoComprador}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefonoComprador">Telefono Comprador</label>
+                <input type="number" name="telefonoComprador" id="telefonoComprador" class="form-control" [(ngModel)]="venta.telefonoComprador">
+                <div class="alert alert-danger" *ngIf="error && error.telefonoComprador">
+                    {{ error.telefonoComprador }}
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div class="row row-cols-2 row-cols-lg-3 g-3 g-lg-3">
+            <div class="form-group">
+                <label for="correoComprador">Correo Comprador</label>
+                <input type="email" name="correoComprador" id="correoComprador" class="form-control" [(ngModel)]="venta.correoComprador">
+                <div class="alert alert-danger" *ngIf="error && error.correoComprador">
+                    {{ error.correoComprador }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ciudadComprador">Ciudad Comprador</label>
+                <input type="text" name="ciudadComprador" id="ciudadComprador" class="form-control" [(ngModel)]="venta.ciudadComprador">
+                <div class="alert alert-danger" *ngIf="error && error.ciudadComprador">
+                    {{ error.ciudadComprador}}
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="direccionComprador">Direccion Comprador</label>
+                <input type="text" name="direccionComprador" id="direccionComprador" class="form-control" [(ngModel)]="venta.direccionComprador">
+                <div class="alert alert-danger" *ngIf="error && error.direccionComprador">
+                    {{ error.direccionComprador}}
+                </div>
+            </div>
+        </div><br>
+        <div class="form-group">
+            <label for="cedulavendedor">Cedula Vendedor</label>
+            <input style="max-width: 400px;" type="text" name="cedulavendedor" id="cedulavendedor" class="form-control" [(ngModel)]="venta.cedulavendedor">
+            <div class="alert alert-danger" *ngIf="error && error.cedulavendedor">
+                {{ error.cedulavendedor}}
+            </div>
+        </div>
+        <br><hr>
+        <h3><li>Seleccion de productos</li></h3>
+        <div style="padding:5px; border: solid 1px;">
+            <div *ngFor="let pedidolist of listadePedidos">
+                Agregado el Producto {{pedidolist.producto.nombreproducto}} 
+            </div>
+        </div>
+        <br>
+        <table>
+
+            <tr *ngFor="let productoDisponible of listaProductos">
+                <td>{{productoDisponible.producto.nombreproducto}}</td>
+                <td><input style="max-width: 55px;" type="text" name="id" id="id" class="form-control" [(ngModel)]="productoDisponible.unidades"></td>
+                <td>
+                    <button class="btn btn-success btn-sm" (click)="agregarProducto(productoDisponible)">Agregar</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <!-- <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-2">
+            <div class="form-group">
+                <select class="form-control custom-select" id="inputGroupSelect01" [(ngModel)]="pedido">
+                    <option selected>Producto</option>
+                    <option *ngFor="let lista of listaProductos" [ngValue]="pedido">{{lista.producto.nombreproducto}}</option>
+                </select>
+            </div>
+            <div class="form-group"> -->
+                <!-- <label for="cantidadProducto">Cantidad</label><br> -->
+                <!-- <div style="display: inline-flex;">
+                    <button type="button" class="btn btn-primary disabled" *ngIf="numeroCantidad==0" >-</button>
+                    <button type="button" class="btn btn-primary" *ngIf="numeroCantidad>0" (click)="menos()">-</button>
+                    <input style="max-width: 100px;" type="number" name="cantidadProducto" id="cantidadProducto" class="form-control"  [(ngModel)]="numeroCantidad">
+                    <button type="button" class="btn btn-primary" (click)="mas()">+</button>
+                </div>
+            </div> -->
+
+
+
+            <!--  -->
+            <!-- <div class="form-group">
+                <label for="idproducto">Producto</label>
+                <input type="text" name="idproducto" id="idproducto" class="form-control" [(ngModel)]="venta.pedidos.idproducto">
+                <div class="alert alert-danger" *ngIf="error && error.idproducto">
+                    {{ error.idproducto}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cantidadProducto">Cantidad</label><br>
+                <div style="display: inline-flex;">
+                    <button type="button" class="btn btn-primary disabled" *ngIf="numeroCantidad==0" >-</button>
+                    <button type="button" class="btn btn-primary" *ngIf="numeroCantidad>0" (click)="menos()">-</button>
+                    <input style="max-width: 100px;" type="number" name="cantidadProducto" id="cantidadProducto" class="form-control"  [(ngModel)]="numeroCantidad">
+                    <button type="button" class="btn btn-primary" (click)="mas()">+</button>
+                </div>
+                <div class="alert alert-danger" *ngIf="error && error.direccionComprador">
+                    {{ error.direccionComprador}}
+                </div>
+            </div> -->
+        <!-- </div><br> -->
+        <!-- <button type="button" style="margin-left: 30%;" class="btn btn-primary" (click)="agregarProducto(pedido,cantidad)">Agregar otro producto</button> -->
+
+        <br><br>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-outline-success text-light" (click)="crear()">
+                    Crear Venta
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

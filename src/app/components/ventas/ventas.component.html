@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">
+        <h1 class="text text-center">Ventas</h1>
+    </div>
+    <div class="card-body text-primary">
+        <div class="table-responsive">
+
+            <table class="table table-hover table-striped ">
+                <thead>
+                    <tr>
+                        <th>N° Venta</th>
+                        <th>Comprador</th>
+                        <th>CC Vendedor</th>
+                        <th>Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let venta of listadeVentas">
+                        <td>{{ venta.idVenta }}</td>
+                        <td>{{ venta.nombreComprador }} {{ venta.apellidoComprador }}</td>
+                        <td>{{ venta.cedulavendedor }}</td>
+                        <td>{{ venta.total | currency:'COP '}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

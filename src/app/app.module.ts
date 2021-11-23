@@ -19,6 +19,9 @@ import { UsuarioFormComponent } from './components/usuario/usuario-form.componen
 import { VendedorFormComponent } from './components/vendedores/vendedor-form.component';
 import { AdministradorFormComponent } from './components/administradores/administrador-form.component';
 import { CompradorFormComponent } from './components/compradores/comprador-form.component';
+import { VerVendedorComponent } from './components/vendedores/ver-vendedor.component';
+import { VentasComponent } from './components/ventas/ventas.component';
+import { VentasFormComponent } from './components/ventas/ventas-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { CompradorFormComponent } from './components/compradores/comprador-form.
     UsuarioFormComponent,
     VendedorFormComponent,
     AdministradorFormComponent,
-    CompradorFormComponent
+    CompradorFormComponent,
+    VerVendedorComponent,
+    VentasComponent,
+    VentasFormComponent
   ],
   imports: [
     BrowserModule,

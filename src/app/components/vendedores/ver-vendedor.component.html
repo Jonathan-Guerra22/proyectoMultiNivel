@@ -1,0 +1,151 @@
+<button class="btn btn-secondary btn-outline-danger text-light btn-lg my-2" routerLink="/vendedores">Regresar</button>
+<br><br>
+<div class="card" >
+    <h5 class="card-header"><li>{{ vendedor.nombreVendedor }} {{ vendedor.apellidoVendedor }} - 
+        <span *ngIf="vendedor.estadoVendedor == 'Activo' "class="fw-bold text-success">Vendedor</span>
+        <span *ngIf="vendedor.estadoVendedor == 'Deshabilitado' "class="fw-bold text-danger">Vendedor</span>
+    </h5>
+    <div class="card-body">
+        <h1 class="text-center mt-3 fw-bold card-title">Información del vendedor</h1><br><br>
+        <div>          
+
+            <div class="row ">
+                <div class="col">
+                    <p class="">
+                        <span class="fw-bold">Cedula del vendedor:</span> {{vendedor.cedulavendedor}}
+                    </p>
+                </div>
+                <div class="col">
+                    <p *ngIf="vendedor.estadoVendedor == 'Activo' ">
+                        <span class="fw-bold">Estado del vendedor:</span> 🟢 {{ vendedor.estadoVendedor }}
+                    </p>
+                    <p *ngIf="vendedor.estadoVendedor == 'Deshabilitado'">
+                        <span class="fw-bold">Estado del vendedor:</span>🔴 {{ vendedor.estadoVendedor }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col">
+                    <span class="fw-bold">Correo:</span> {{vendedor.usuario.correo}}
+    
+                </div>
+                <div class="col">
+                    <span class="fw-bold">Nombre usuario:</span> {{vendedor.usuario.nomusuario}}
+    
+                </div>
+            </div><br>
+
+            <div class="row ">
+                <div class="col">
+                    <p class="">
+                        <span class="fw-bold">Grupo Asignado:</span> {{vendedor.grupo}}
+                    </p>    
+                </div>
+                <div class="col">
+                    <span class="fw-bold">Rol:</span> {{ vendedor.roles[0].nombreRol }} 
+                    <span class="fw-bold">Nivel: </span>{{ vendedor.roles[0].idRol }}
+    
+                </div>
+            </div>
+
+    
+            <div class="row ">
+                <div class="col">
+                    <span class="fw-bold">Direccion:</span> {{vendedor.direccion}}
+    
+                </div>
+                <div class="col">
+                    <span class="fw-bold">Ciudad:</span> {{vendedor.ciudadVendedor}}
+    
+                </div>
+            </div>
+            <div *ngIf="vendedor.vendedoreAfiliador && vendedor.vendedoreAfiliador.cedulavendedor!=1">
+                <br><br><hr><br>
+                <h4 class="fw-bold text-center">Informacion del vendedor afiliador(nivel Superior)</h4><br>
+                <div class="row ">
+                    <div class="col">
+                        <span class="fw-bold">Nombre:</span> {{vendedor.vendedoreAfiliador.nombreVendedor}}
+                        {{vendedor.vendedoreAfiliador.apellidoVendedor}}
+                        
+                    </div>
+                    <div class="col">
+                        <span class="fw-bold">Cedula:</span> {{vendedor.vendedoreAfiliador.cedulavendedor}}
+                        
+                    </div>
+                </div><br>
+                <div class="row ">
+                    <div class="col">
+                        <span class="fw-bold">Correo:</span> {{vendedor.vendedoreAfiliador.usuario.correo}}
+                        
+                    </div>
+                    <div class="col">
+                        <span class="fw-bold">Celular:</span> {{vendedor.vendedoreAfiliador.celularVendedor}}
+                        
+                    </div>
+                </div><br>
+                <div class="row ">
+                    <div class="col">
+                        <span class="fw-bold">Grupo:</span> {{vendedor.vendedoreAfiliador.grupo}}
+                    </div>
+                    <div class="col">
+                        <span class="fw-bold">Rol:</span> {{vendedor.vendedoreAfiliador.roles[0].nombreRol}}
+                        <span class="fw-bold">Nivel: </span>{{ vendedor.vendedoreAfiliador.roles[0].idRol }}
+                    </div>
+                </div>
+            </div>
+                
+        </div><br>
+    </div>
+    <h4 class="card-header text-center fw-bold">Ventas de {{ vendedor.nombreVendedor }} {{ vendedor.apellidoVendedor }} </h4>
+    <div class="card-body">
+        <div *ngFor="let venta of listadeVentas">
+            <h5>
+                <div class="row ">
+                    <div class="col">
+                        <span class="text text-primary ms-4">
+                            ID Venta: {{venta.idVenta}}
+                        </span>
+                    </div>
+                    <div>
+                        <span class="position-absolute end-0 me-4">
+                            🗓Fecha de creacion: {{venta.fecha | date:'shortDate'}}
+                        </span>
+                    </div>
+                </div>
+            </h5>
+            <br>
+            <h6><li>Datos Comprador</li></h6><br>
+            <div class="row ">
+                <div class="col">
+                    <span class="fw-bold">Nombre:</span> {{venta.nombreComprador}} {{venta.apellidoComprador}}
+                </div>
+                <div class="col">
+                    <span class="fw-bold">Telefono:</span> {{venta.telefonoComprador}}
+                </div>
+                <div class="col">
+                    <span class="fw-bold">Correo:</span> {{venta.correoComprador}}
+                </div>
+            </div><br>
+            <div class="row ">
+                <div class="col">
+                    <span class="fw-bold">Dirección:</span> {{venta.direccionComprador}}
+                </div>
+                <div class="col">
+                    <span class="fw-bold">Ciudad:</span> {{venta.ciudadComprador}}
+                </div>
+                <div class="col">
+                    <span class="fw-bold">Costo Venta:</span> <span class="text text-success fw-bold"> {{venta.total |  currency:'COP '}}</span>
+                </div>
+            </div>
+            <div class="card">
+                <!-- <p *ngFor="let pro of listadeVentas">
+                    {{pro.productos}}
+                </p> -->
+            </div>
+            
+            <br><hr>
+        </div>
+    </div>
+
+  </div>

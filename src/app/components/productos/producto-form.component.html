@@ -5,7 +5,7 @@
     <div class="card-body">
         <form >
             <div class="form-group">
-                <label for="genero">Genero (Seleccione una opcion)</label>
+                <label for="genero">Categoria (Seleccione una opcion)</label>
                 <select class="form-select form-control" aria-label="Default select example" name="genero" [(ngModel)]="producto.categoria">
                 <option *ngFor="let categoria of listaCategorias" selected [ngValue]="categoria">{{categoria.id}}. {{categoria.nombre}} | {{categoria.genero}}</option>
                 </select>

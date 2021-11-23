@@ -1,1 +1,111 @@
-<p>vendedor-form works!</p>
+<button class="btn btn-secondary btn-outline-danger text-light btn-lg my-2" routerLink="/vendedores">Regresar</button>
+<br>
+<div class="card mb-3">
+    <div class="card-header"><h1 class="text text-center">Formulario de Vendedores</h1></div>
+    <div class="card-body">
+        <form><br>
+
+        <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+            <div class="form-group">
+                <label for="cedula">Cedula Vendedor</label>
+                <input type="number" name="cedula" id="cedula" class="form-control" [(ngModel)]="vendedor.cedulavendedor" [(ngModel)]="vendedor.usuario.cedula">
+                <div class="alert alert-danger" *ngIf="error && error.cedula">
+                    {{ error.cedulavendedor }}
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="nombreVendedor">Nombre Vendedor</label>
+                <input type="text" name="nombreVendedor" id="nombreVendedor" class="form-control" [(ngModel)]="vendedor.nombreVendedor" [(ngModel)]="vendedor.usuario.nomusuario">
+                <div class="alert alert-danger" *ngIf="error && error.nombreVendedor">
+                    {{ error.nombreVendedor }}
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="apellido">Apellido Vendedor</label>
+                <input type="text" name="apellidoVendedor" id="apellidoVendedor" class="form-control" [(ngModel)]="vendedor.apellidoVendedor">
+                <div class="alert alert-danger" *ngIf="error && error.apellidoVendedor">
+                    {{ error.apellidoVendedor}}
+                </div>
+            </div>
+        </div>
+        
+        <br>
+        <div class="row row-cols-2 row-cols-lg-3 g-3 g-lg-3">
+            <div class="form-group">
+                <label for="celular">Celular Vendedor</label>
+                <input type="number" name="celularVendedor" id="celularVendedor" class="form-control" [(ngModel)]="vendedor.celularVendedor">
+                <div class="alert alert-danger" *ngIf="error && error.celularVendedor">
+                    {{ error.celularVendedor}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" name="correo" id="correo" class="form-control" [(ngModel)]="vendedor.usuario.correo">
+                <div class="alert alert-danger" *ngIf="error && error.correo">
+                    {{ error.correo }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" name="contrasena" id="contrasena" class="form-control" [(ngModel)]="vendedor.usuario.contrasena">
+                <div class="alert alert-danger" *ngIf="error && error.contrasena">
+                    {{ error.contrasena }}
+                </div>
+            </div>
+        </div>      
+        <br>
+
+        <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
+            <div class="form-group">
+                <label for="ciudadVendedor">Ciudad Vendedor</label>
+                <input type="text" name="ciudadVendedor" id="ciudadVendedor" class="form-control" [(ngModel)]="vendedor.ciudadVendedor">
+                <div class="alert alert-danger" *ngIf="error && error.ciudadVendedor">
+                    {{ error.ciudadVendedor}}
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="direccion">Direccion Vendedor</label>
+                <input type="text" name="direccion" id="direccion" class="form-control" [(ngModel)]="vendedor.direccion">
+                <div class="alert alert-danger" *ngIf="error && error.direccion">
+                    {{ error.direccion}}
+                </div>
+            </div>
+        </div><br><hr><br>
+        <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
+            <div class="form-group">
+                <label for="vendedoreAfiliador">Vendedor Afiliador</label>
+                <input type="text" name="vendedoreAfiliador" id="vendedoreAfiliador" class="form-control" [(ngModel)]="vendedor.vendedoreAfiliador.cedulavendedor">
+                <div class="alert alert-danger" *ngIf="error && error.vendedoreAfiliador">
+                    {{ error.vendedoreAfiliador}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="grupo">Grupo</label>
+                <input type="text" name="grupo" id="grupo" class="form-control" [(ngModel)]="vendedor.grupo">
+                <div class="alert alert-danger" *ngIf="error && error.grupo">
+                    {{ error.grupo}}
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label for="genero">Categoria (Seleccione una opcion)</label>
+            <select class="form-select form-control" aria-label="Default select example" name="genero" [(ngModel)]="vendedor.vendedoreAfiliador.cedulavendedor">
+                <option *ngFor="let vendedorAfi of listadeVendedores" selected [ngValue]="vendedor.vendedoreAfiliador.cedulavendedor">
+                    {{vendedorAfi.cedulavendedor}}. {{vendedorAfi.nombreVendedor}} {{vendedorAfi.apellidoVendedor}}
+                </option>
+            </select>
+        </div><br> -->
+
+        <br>
+            
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-outline-success text-light" (click)="crear()">
+                    Crear Vendedor
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
